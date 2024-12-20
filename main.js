@@ -4,20 +4,17 @@
 
 document.title = 'maulana'
 
-console.log(document.body)
 
-const body = document.body
-body.append('hello world')
 
-const h1 = document.createElement('h1')
-h1.textContent = "ini h1"
+const btn1 = document.getElementById('btn1')
+const btn2 = document.querySelector('.btn2')
 
-const namaSaya = document.createElement('p')
-namaSaya.innerHTML = "<marquee>Nor Rahman maulana</marquee>"
+btn1.style.border = 'none'
+btn1.style.padding = '8px'
+btn1.style.fontSize = '15px'
+btn1.style.background = 'green'
+btn1.style.color = 'white'
 
-const namaKamu = document.createElement('b')
-namaKamu.innerText = "<marquee>Puspa</marquee>"
 
-body.append(h1)
-body.append(namaSaya)
-body.append(namaKamu)
+
+console.log(btn1)
