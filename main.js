@@ -1,8 +1,7 @@
-let namaGuru = []
+// forloop
 
-namaGuru[0] = 'dea'
-namaGuru[1] = 'fikri'
+const namaGuru = ['dea', 'fikri', 'retno', 'bunga']
 
-namaGuru.shift()
-
-alert(namaGuru)
+for (let i = 0; i < namaGuru.length; i++) {
+    console.log(namaGuru[i])
+}
