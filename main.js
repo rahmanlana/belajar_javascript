@@ -1,5 +1,8 @@
-let namaGuru = ['jodi', 'bunga', 'rahman']
-namaGuru.push('dea', 'fikri')
+let namaGuru = []
+
+namaGuru[0] = 'dea'
+namaGuru[1] = 'fikri'
+
 namaGuru.shift()
-namaGuru.pop()
+
 alert(namaGuru)
