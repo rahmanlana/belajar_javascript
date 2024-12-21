@@ -1,22 +1,11 @@
 // array
 
-const arraySaya = ['mangga', 'nanas', 'alpukat', 'semangka', 'pisang']
 
-const semangka = arraySaya.includes('semangka')
-const posisiSemangka = arraySaya.indexOf('semangka')
+//copyy tanpa merubah data array yang asli
+const arraySaya = ['alpukat', 'jeruk', 'semangka']
+const newArray = [...arraySaya]
 
-if (semangka) {
-    const indexBefore = posisiSemangka - 1
-    const indexAfeter = posisiSemangka + 1
-    const before = arraySaya[indexBefore]
-    const after = arraySaya[indexAfeter]
-    console.log(`buah semangka terletak di antara buah ${before} dan buah ${after}`)
+newArray[0] = 'sayur'
 
-    const buahAwal = arraySaya[0]
-    console.log(`buah awal adalah ${buahAwal}`)
-    const buahAkhir = arraySaya[arraySaya.length - 1]
-    console.log(`buah Terakhir adalah ${buahAkhir}`)
-
-} else {
-    console.log('saya tidak tau dimana posisi semngka')
-}
+console.log({ arraySaya })
+console.log({ newArray })
