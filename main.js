@@ -2,10 +2,12 @@
 
 
 //copyy tanpa merubah data array yang asli
-const arraySaya = ['alpukat', 'jeruk', 'semangka']
-const newArray = [...arraySaya]
+const arraySaya = ['alpukat', 10, {
+    semangka: function iniTomat() {
+        console.log(`ini Tomat`)
+    }
+}, ['eat', 'food']]
 
-newArray[0] = 'sayur'
+arraySaya[2].semangka()
 
-console.log({ arraySaya })
-console.log({ newArray })
+console.log(arraySaya[3][0])
