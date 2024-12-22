@@ -16,38 +16,45 @@
 const pictures = ["1.jpg", "2.jpg", "3.jpg"]
 const token = ~~[Math.random() * 12345678]
 
-function login(username, callback) {
+function login(username) {
     console.log('processing...memvalidasi data!')
-    setTimeout(() => {
-        callback({ token, username })
-    }, 200)
-}
-
-function getUser(token, callback) {
-    console.log('procesing Apikey noww...')
-    if (token)
+    return new Promise((success, failed) => {
         setTimeout(() => {
-            callback({ apiKey: "xkey123" })
-        }, 500)
+            if (username != "rahman_maulana")
+                failed("sorry wrong data")
+            success({ token })
+        }, 200)
+    })
 }
 
-function getPictures(apiKey, callback) {
+function getUser(token) {
+    console.log('procesing Apikey noww...')
+    return new Promise((success, failed) => {
+        if (!token) failed("sorry, no token. can not access!")
+        if (token)
+            setTimeout(() => {
+                success({ apiKey: "xkey123" })
+            }, 500)
+    })
+}
+
+function getPictures(apiKey) {
     console.log('procesing pictures key noww...')
     if (apiKey)
         setTimeout(() => {
-            callback({ pic: pictures })
+            return ({ pic: pictures })
         }, 1500)
 }
 
-login("maua_lana", function (response) {
+const user = login("rahman_maulana")
+user.then(function (response) {
     const { token } = response
-    getUser(token, function (response) {
+    getUser(token).then(function (response) {
+        console.log({ response })
         const { apiKey } = response
-        getPictures(apiKey, function (response) {
-            const { pic } = response
-            console.log(pic)
-        })
-    })
-})
+        console.log(apiKey)
+    }).catch(err => console.log(err))
+}).catch(err => console.log(err))
+
 
 
