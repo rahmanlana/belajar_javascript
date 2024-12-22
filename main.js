@@ -40,21 +40,25 @@ function getUser(token) {
 
 function getPictures(apiKey) {
     console.log('procesing pictures key noww...')
-    if (apiKey)
+    return new Promise((success, failed) => {
+        if (!apiKey) failed("no ApiKey, canot access")
         setTimeout(() => {
-            return ({ pic: pictures })
+            success({ pic: pictures })
         }, 1500)
+    })
 }
 
-const user = login("rahman_maulana")
-user.then(function (response) {
-    const { token } = response
-    getUser(token).then(function (response) {
-        console.log({ response })
-        const { apiKey } = response
-        console.log(apiKey)
-    }).catch(err => console.log(err))
-}).catch(err => console.log(err))
+async function userDisplay(params) {
+    const { token } = await login("rahman_maulana")
+    const { apiKey } = await getUser(token)
+    const { pic } = await getPictures(apiKey)
+    console.log(`
+         token anda adalah ${token}
+         apiKey anda adalah ${apiKey}
+         request gambar anda berikut ini ${pic}
+        `
+    )
+}
 
-
+userDisplay()
 
