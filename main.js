@@ -1,39 +1,53 @@
-/*
-perulangan java script
-*/
-// let x = 1
-
-// for (x = 5; x >= 1; x--) {
-//     console.log('data ke- ' + [x]);
+// function satu() {
+//     console.log('satu')
 // }
-
-// while (x < 5) {
-//     console.log('data ke- ' + [x]);
-//     x++
+// function dua() {
+//     console.log('function 2 mau di esekusi')
+//     setTimeout(() => {
+//         console.log('dua')
+//     }, 0)
 // }
-
-// do {
-//     console.log('data ke- :' + [x]);
-//     x++
-// } while (x < 5);
-
-
-/*
-tugas looping
-*/
-// const array = [3, 5, 12]
-// let hasil = 0
-// for (let i = 0; i < array.length; i++) {
-//     console.log(`data ke- ${i} : ` + array[i]);
-//     hasil = hasil + array[i]
-
+// function tiga() {
+//     console.log('tiga')
 // }
-// console.log('jumlah semua data : ' + hasil);
+// satu()
+// dua()
+// tiga()
+const pictures = ["1.jpg", "2.jpg", "3.jpg"]
+const token = ~~[Math.random() * 12345678]
 
-const saudaraSaya = ['tomi', 'wahyu', 'nafila', 'lana']
-for (let saudara of saudaraSaya) {
-    console.log(saudara)
+function login(username, callback) {
+    console.log('processing...memvalidasi data!')
+    setTimeout(() => {
+        callback({ token, username })
+    }, 200)
 }
-saudaraSaya.map((saudara, index) => {
-    console.log(saudara, index++)
-});
+
+function getUser(token, callback) {
+    console.log('procesing Apikey noww...')
+    if (token)
+        setTimeout(() => {
+            callback({ apiKey: "xkey123" })
+        }, 500)
+}
+
+function getPictures(apiKey, callback) {
+    console.log('procesing pictures key noww...')
+    if (apiKey)
+        setTimeout(() => {
+            callback({ pic: pictures })
+        }, 1500)
+}
+
+login("maua_lana", function (response) {
+    const { token } = response
+    getUser(token, function (response) {
+        const { apiKey } = response
+        getPictures(apiKey, function (response) {
+            const { pic } = response
+            console.log(pic)
+        })
+    })
+})
+
+
