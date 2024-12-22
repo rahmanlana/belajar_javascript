@@ -49,15 +49,19 @@ function getPictures(apiKey) {
 }
 
 async function userDisplay(params) {
-    const { token } = await login("rahman_maulana")
-    const { apiKey } = await getUser(token)
-    const { pic } = await getPictures(apiKey)
-    console.log(`
-         token anda adalah ${token}
-         apiKey anda adalah ${apiKey}
-         request gambar anda berikut ini ${pic}
-        `
-    )
+    try {
+        const { token } = await login("rahman_maulana")
+        const { apiKey } = await getUser(token)
+        const { pic } = await getPictures(apiKey)
+        console.log(`
+             token anda adalah ${token}
+             apiKey anda adalah ${apiKey}
+             request gambar anda berikut ini ${pic}
+            `
+        )
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 userDisplay()
