@@ -1,24 +1,95 @@
+//destructuring array 
 
-//global scope
-let i = 20
+{
+    const names = ["Eko", "Kurniawan", "Khannedy", "Budi", "Joko"]
+    let [firstName, middleName, lastName, ...others] = names
 
-for (let i = 0; i < 10; i++) {
-    //local scope
-    console.info(`local ${i}`)
+    console.info(firstName)
+    console.info(middleName)
+    console.info(lastName)
+    console.info(others)
 }
 
-console.info(`global ${i}`)
+{
+    const person = {
+        firstName: "Eko",
+        lastName: "Khannedy",
+        address: {
+            street: "Jalan Belum Ada",
+            city: "Jakarta",
+            country: "Indonesia"
+        },
+        hobby: "Game",
+        channel: "Programmer Zaman Now"
+    }
 
-
-//var
-//jika membuat sebuah global scope maka variable nya akan berubah , karena seakan akan akan mengubah 
-// local merubah global nya dan ini sedikit aneg dan tidak terdefinisi
-
-var j = 20;
-
-for (var j = 0; j < 10; j++) {
-    // local scope
-    console.info(`Local ${j}`);
+    let { firstName, lastName, address: { city, street, country }, ...others } = person
+    console.info(firstName)
+    console.info(lastName)
+    console.info(city)
+    console.info(street)
+    console.info(country)
+    console.info(others)
 }
 
-console.info(`Global ${j}`);
+{
+    function displayPerson({ firstName, middleName, lastName }) {
+        console.info(firstName)
+        console.info(middleName)
+        console.info(lastName)
+    }
+
+    const person = {
+        firstName: "Eko",
+        middleName: "Kurniawan",
+        lastName: "Khannedy",
+    }
+
+    displayPerson(person)
+}
+
+{
+    function sum([first, second]) {
+        return first + second
+    }
+
+    console.info(sum([1, 1]))
+    console.info(sum([10, 10]))
+}
+
+{
+    const names = ["Eko", "Budi", "Joko"]
+    const [firstName, middleName = "Kurniawan", lastName = "Khannedy"] = names
+
+    console.info(firstName)
+    console.info(middleName)
+    console.info(lastName)
+}
+
+{
+    const person = {
+        firstName: "Eko",
+        middleName: "Budi",
+        lastName: "Khannedy"
+    }
+
+    let { firstName, middleName = "Kurniawan", lastName } = person
+    console.info(firstName)
+    console.info(middleName)
+    console.info(lastName)
+}
+
+{
+    const person = {
+        firstName: "Eko",
+        middleName: "Budi",
+        lastName: "Khannedy"
+    }
+
+    let { firstName: namaDepan,
+        middleName: namaTengah = "Kurniawan",
+        lastName: namaBelakang } = person
+    console.info(namaDepan)
+    console.info(namaTengah)
+    console.info(namaBelakang)
+}
