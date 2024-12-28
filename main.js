@@ -1,13 +1,10 @@
-//with statment 
+//function sebagai value
 
-const arrayData = {
-    firstName: "nor",
-    middleName: "rahman",
-    lastName: "maulana"
+function sayHallo(nama) {
+    console.log(`hello ${nama}`)
 }
 
-with (arrayData) {
-    console.info(firstName)
-    console.info(middleName)
-    console.info(lastName)
-}
+let say = sayHallo
+
+sayHallo("lana")
+say("indra")
