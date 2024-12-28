@@ -1,10 +1,13 @@
-//function sebagai value
+// function di dalam function
+function outer() {
+    function inner() {
 
-function sayHallo(nama) {
-    console.log(`hello ${nama}`)
+    }
+    inner()
+    inner()//maka harus seperti ini
 }
 
-let say = sayHallo
+outer()
+inner()//ini maka akan erorr
 
-sayHallo("lana")
-say("indra")
+//untuk mengakses function di dalam function harus di akses di dalam function tersebut
