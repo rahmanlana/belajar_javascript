@@ -1,14 +1,10 @@
+//object method
 
-//kemampuan closure
-function createAdder(value) {
-    const owner = "lana"
-    function add(params) {
-        console.info(owner)
-        return value + params
+const person = {
+    name: "lana",
+    sayHello: function (name) {
+        alert(`hello ${name}`)
     }
-
-    return add
 }
 
-const addTwo = createAdder(2)
-console.info(addTwo(20))
+person.sayHello("hahaha")
