@@ -1,13 +1,15 @@
-// function di dalam function
-function outer() {
-    function inner() {
+//global_scope_scope
 
-    }
-    inner()
-    inner()//maka harus seperti ini
+let counter = 0
+
+function hitMe() {
+    console.log(`nama saya lana `)
+    counter++
 }
+function orther() {
+    hitMe()
+}
+orther()
+hitMe()
 
-outer()
-inner()//ini maka akan erorr
-
-//untuk mengakses function di dalam function harus di akses di dalam function tersebut
+console.info(counter)
