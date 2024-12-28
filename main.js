@@ -11,3 +11,4 @@ function createAdder(value) {
 }
 
 const addTwo = createAdder(2)
+console.info(addTwo(20))
