@@ -1,11 +1,23 @@
-//method arrow function
+//getter dan setter
 
 const person = {
-    name: "Eko",
-    sayHello: (name) => {
-        console.info(this);
-        console.info(`Hello ${name}, My Name is ${this.name}`)
+    firstName: "Eko",
+    lastName: "Khannedy",
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`
+    },
+    set fullName(value) {
+        const array = value.split(" ")
+        this.firstName = array[0]
+        this.lastName = array[1]
     }
 }
 
-person.sayHello("Budi")
+person.fullName = "Budi Nugraha"
+console.table(person)
+
+person.fullName = "Joko Morro"
+console.table(person)
+
+person.fullName = "Eko Khannedy"
+console.table(person)
