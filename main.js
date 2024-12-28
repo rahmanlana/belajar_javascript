@@ -1,10 +1,24 @@
-//object method
+//kata kunci this
 
-const person = {
-    name: "lana",
-    sayHello: function (name) {
-        alert(`hello ${name}`)
+function sample() {
+    console.info(this)
+
+    function inner() {
+        console.info(this)
     }
+
+    inner()
 }
 
-person.sayHello("hahaha")
+sample()
+
+
+const person = {
+    name: "Eko",
+    sayHello: function (value) {
+        console.info(`Hello ${value} My Name is ${this.name}`)
+    }
+};
+
+person.sayHello("Budi")
+person.sayHello("Joko")
