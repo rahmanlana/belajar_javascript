@@ -1,15 +1,18 @@
-function useStrictMode() {
-    'use strict'
-    const person = {
-        firstName: "Eko"
-    };
-
-    // error
-    with (person) {
-        console.info(firstName);
-    }
-
+//debuger 
+function creatFullName(firstName, midelName, lastName) {
+    // debugger
+    const fullName = `${firstName} ${midelName} ${lastName}`
+    return fullName
 }
-useStrictMode();
+const name = creatFullName(`nor`, `rahman`, `maulana`)
+console.info(name)
 
-//strict mode memberikan fungsi untuk mengetahui pada code pemrograman yang salah 
+function sum(...numbers) {
+    debugger;
+    let total = 0
+    for (const number of numbers) {
+        total += number
+    }
+    return total
+}
+console.info(sum(1, 1, 1, 1, 1))
