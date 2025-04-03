@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor Inherit</title>
+</head>
+
+<body>
+    <script>
+        function Employee(fristName) {
+            this.fristName = fristName;
+            this.sayHello = function (name) {
+                console.info(`helo ${name}, my name is ${fristName}`)
+            }
+        }
+
+        function Manager(fristName, lastName) {
+            this.lastName = lastName;
+            Employee.call(this, fristName);
+        }
+
+        const eko = new Manager("eko", "Khanedy");
+        console.info(eko);
+    </script>
+</body>
+
+</html>

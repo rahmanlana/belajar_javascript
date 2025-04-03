@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <Script>
+
+        function Employee(name) {
+            this.name = name;
+        }
+
+        function Manager(name) {
+            this.name = name;
+        }
+
+        //cara yang salah
+        // Manager.prototype = Employee.prototype;
+
+        //cara definisikan pewarisan yang benar
+        Manager.prototype = Object.create(Employee.prototype);
+
+        Manager.prototype.sayHello = function (name) {
+            console.info(`hello ${name}, my name is Manager ${this.name}`);
+        }
+
+        Employee.prototype.sayHello = function (name) {
+            console.info(`hello ${name}, my name is Employee ${this.name}`);
+        }
+
+        const employee = new Employee("budi");
+        employee.sayHello("Joko");
+
+        const manager = new Manager("eko");
+        manager.sayHello("Joko");
+
+        console.info(employee);
+        console.info(manager);
+
+    </Script>
+</body>
+
+</html>

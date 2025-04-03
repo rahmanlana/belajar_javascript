@@ -8,7 +8,7 @@ const name = creatFullName(`nor`, `rahman`, `maulana`)
 console.info(name)
 
 function sum(...numbers) {
-    debugger;
+    debugger;  
     let total = 0
     for (const number of numbers) {
         total += number
